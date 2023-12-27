@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
 import ru.javamentor.springmvc.model.User;
 import ru.javamentor.springmvc.service.UserService;
 

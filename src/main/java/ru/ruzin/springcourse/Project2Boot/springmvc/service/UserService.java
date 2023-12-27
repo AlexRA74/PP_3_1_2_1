@@ -10,7 +10,7 @@ public interface UserService {
 
     List<User> getAllUsers();
     User getUserById(Long id);
-    public void addUser(User user);
-    public void removeUser(Long id);
-    public void updateUser(@Valid User user);
+    void addUser(User user);
+    void removeUser(Long id);
+    void updateUser(@Valid User user);
 }

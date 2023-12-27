@@ -11,7 +11,6 @@ import ru.javamentor.springmvc.model.User;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
@@ -20,28 +19,35 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
+
+    @Transactional
+    @Override
+    public void saveUser(User user) {
+        userDao.saveUser(user);
+    }
+
+    @Transactional
+    @Override
+    public User getById(Long id) {
+        return userDao.getById(id);
+    }
+
+    @Transactional
     @Override
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
+    @Transactional
     @Override
-    public User getUserById(Long id) {
-        return userDao.getUserById(id);
+    public void update(User updateUser) {
+        userDao.update(updateUser);
+
     }
 
+    @Transactional
     @Override
-    public void addUser(User user) {
-        userDao.addUser(user);
-    }
-
-    @Override
-    public void removeUser(Long id) {
-        userDao.removeUser(id);
-    }
-
-    @Override
-    public void updateUser(@Valid User user) {
-        userDao.updateUser(user);
+    public void removeUserById(long id) {
+        userDao.removeUserById(id);
     }
 }
